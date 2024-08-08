@@ -1,0 +1,87 @@
+.collection_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    padding:8px 15px;
+}
+.model {
+    padding: 15px;
+}
+.model_box {
+    border: 1px solid;
+    padding: 15px;
+    border-radius: 8px;
+}
+.select_type {
+    text-align: center;
+}
+.select_type button {
+    padding: 10px 15px;
+    border-radius: 50px;
+    border: 1px solid gray;
+    background: #000;
+    color: #fff;
+    margin: 0 8px;
+    cursor: pointer;
+}
+.close_btn {
+    padding: 8px;
+    border-radius: 50%;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+    text-align: right;
+    width: 100%;
+    font-size: 18px;
+}
+.collection_submit{
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid;
+    cursor: pointer;
+}
+.collection_header button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.create_new_text {
+    text-align: center;
+    padding: 20px 0;
+    color: gray;
+}
+.collection_image, .profile_pic{
+    width: 40px;
+    height: 40px;
+}
+.id_card{
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 8px;
+    margin: 15px 0 0 0;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 4px 1px rgb(255 255 255 / 50%);
+}
+.id_card_img_box{
+    width: 40px;
+    height: 40px;
+}
+.id_card_img_box img{
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+.id_card_name{
+    font-weight: bold;
+    font-size: 20px;
+}
+.id_card_type{
+    color:gray;
+    text-transform: capitalize;
+}

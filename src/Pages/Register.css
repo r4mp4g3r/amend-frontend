@@ -1,0 +1,40 @@
+.input_onboard{
+    border-radius: 8px;
+    border: 2px solid #535353;
+    display: flex;
+    padding: 15px;
+    font-size: 18px;
+    justify-content: space-between;
+}
+.input_onboard .short_text {
+    color: gray;
+    display: flex;
+    align-items: center;
+}
+.input_onboard input{
+    padding: 2px;
+    width: 100%;
+    background: #000;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 18px;
+}
+.input_onboard .check_taken{
+    color: red;
+    padding: 0 0 0 10px;
+}
+.spacing_box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+.spacing_box .onboard_btn {
+    border: 1px solid #535353;
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 8px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+}

@@ -1,0 +1,14 @@
+.inner_container label {
+    margin-top: 20px;
+}
+.input_field {
+    width: 100%;
+    font-size: 18px;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #535353;
+    color:#fff;
+    background-color: #000;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}

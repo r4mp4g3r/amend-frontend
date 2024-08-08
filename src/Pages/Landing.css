@@ -1,0 +1,39 @@
+.outer {
+    background-color: #000;
+}
+.small_container {
+    max-width: 480px;
+    border: 1px solid white;
+    margin: 0 auto;
+    height: 100vh;
+}
+.heading {
+    padding: 15px;
+}
+.content {
+    display: flex;
+    padding: 15px;
+    height: 92vh;
+}
+.inner_container{
+    width: 100%;
+    color:#fff;
+    text-align: center;
+}
+.small_container .title{
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+.small_container .btn {
+    border: 1px solid #535353;
+    font-size: 18px;
+    width: 100%;
+    margin: 10px 0 10px 0;
+    padding: 18px;
+    border-radius: 8px;
+    color: #fff;
+    text-align: center;
+}
+.small_container .shadow {
+    box-shadow: 1px 1px 5px 0px rgb(255 255 255 / 45%);
+}

@@ -1,0 +1,145 @@
+.head{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+  }
+  .head .button {
+    font-weight: 600;
+    font-size: 20px;
+  }
+  
+  .info_card{
+    display: block;
+    text-align: center;
+  }
+  .info_card .profile_pic {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: inherit;
+  }
+  .info_card .name {
+    font-size: 22px;
+    font-weight: 500;
+  }
+  .info_card .profession {
+    font-size: 14px;
+  }
+  
+  .category {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 20px 0;
+    width: 100%;
+    overflow: scroll;
+    overflow-y: hidden; 
+    overflow-x: hidden;
+    padding: 0 10px;
+    font-size: 14px;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
+  .category:hover{
+    overflow-x: scroll;
+  }
+  
+  @media only screen and (max-width: 900px) {
+    .category {
+      overflow-x: scroll;
+    }
+  }
+  
+  .category_box {
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 4px;
+    border-radius: 8px;
+    margin: 8px;
+    cursor: pointer;
+    min-width: 55px;
+    height: 50px;
+    overflow: visible;
+    display: inline-table;
+  }
+  .category_box .icon{
+    width: 28px;
+    height: 28px;
+  }
+  .category_title {
+    white-space: nowrap;
+    text-transform: capitalize;
+  }
+  .active {
+    background-color: #f2f2f2;
+    color: #000;
+  }
+  .active .icon{
+    -webkit-filter: invert(1);
+    filter: invert(1);
+  }
+  
+  .main_content{
+    padding: 0 15px;
+  }
+  .url_card{
+    border: 1px solid #ccc;
+    display: flex;
+    margin: 15px 0;
+    border-radius: 5px;
+    align-items: center;
+    padding: 5px;
+  }
+  .url_card .logo{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+  
+  }
+  .url_card .url_card_logo {
+    width: 40px;
+  }
+  .url_card_info {
+    padding: 0 0 0 5px;
+  }
+  .title{
+    font-weight: 500;
+  }
+  .desc {
+    font-size: 12px;
+  }
+---------------------Add Category Modal---------------
+.add_category_modal{
+  padding: 0 15px;
+}
+
+.add_category_btn{
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.select_image {
+  display: flex;
+}
+.select_image_btn{
+  height: 50px;
+  min-width: 50px;
+  padding: 0;
+  background-color: #000;
+}
+
+/* -----------------------------*/
+.url_card_info_inputs {
+  display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 8px;
+}
+.url_card_info_inputs input{
+    padding: 10px;
+    background: #000;
+    border: 1px solid gray;
+    border-radius: 5px;
+    color: #fff;
+}

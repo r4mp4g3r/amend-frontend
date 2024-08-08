@@ -1,0 +1,67 @@
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.final_btn {
+    background-color: #fff;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+.outline_btn{
+    background: #000;
+    color:#fff;
+    border: 1px solid gray;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.final_onboard_container {
+    padding: 20px 0 ;
+    text-align: center; 
+    color: #fff;
+}
+.profile_pic_box{
+    width: 120px;
+    height: 120px;
+    border: 1px solid gray;
+    border-radius: 50%;
+    margin: 0 auto;
+    cursor: pointer;
+}
+.profile_pic{
+    border: 2px solid gray;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    position: absolute;
+}
+.title_final {
+    font-size: 22px;
+    margin: 10px 0 5px;
+}
+.upload{
+    background-color: rgba(0,0,0,0.4);
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+.handle {
+    color: gray;
+    font-weight: 600;
+}
+.type_box_container{
+    display: flex;
+    justify-content: center;
+}
+.type_box{
+    border: 1px solid gray;
+    border-radius: 50px;
+    padding: 8px 10px;
+    margin: 10px 5px;
+    cursor: pointer;
+}
