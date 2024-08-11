@@ -26,7 +26,7 @@ const Register1 = () => {
         e.preventDefault()
         setLoading(true)
         try {
-            const res = await axios.post("http://localhost:5000/api/v1/register", user);
+            const res = await axios.post("http://localhost:5001/api/v1/register", user);
             console.log(res)
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("name", res.data.user.name);

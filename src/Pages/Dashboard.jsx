@@ -36,7 +36,7 @@ const Dashboard = () => {
     e.preventDefault()
     console.log(addLink)
     try {
-      const response = await axios.post(`http://localhost:5000/api/v1/user/collections/${id}/${categoryId}`, addLink, {
+      const response = await axios.post(`http://localhost:5001/api/v1/user/collections/${id}/${categoryId}`, addLink, {
         headers: {
           Authorization: `Bearer ${token}`
       }
@@ -49,7 +49,7 @@ const Dashboard = () => {
 
   const getLinks = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/v1/user/collections/${id}/${categoryId}/${catName}`, addLink, {
+      const response = await axios.get(`http://localhost:5001/api/v1/user/collections/${id}/${categoryId}/${catName}`, addLink, {
         headers: {
           Authorization: `Bearer ${token}`
       }
@@ -64,7 +64,7 @@ const Dashboard = () => {
 
   const getCollection = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/v1/user/collections/${handle}`, {
+      const response = await axios.get(`http://localhost:5001/api/v1/user/collections/${handle}`, {
             headers: {
               Authorization: `Bearer ${token}`
           }
@@ -82,7 +82,7 @@ const Dashboard = () => {
     e.preventDefault()
     setLoading(true)
     try {
-      const res = await axios.post(`http://localhost:5000/api/v1/user/collections/${id}/add-category`, {title}, {
+      const res = await axios.post(`http://localhost:5001/api/v1/user/collections/${id}/add-category`, {title}, {
         headers: {
           Authorization: `Bearer ${token}`
       }

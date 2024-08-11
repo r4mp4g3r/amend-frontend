@@ -53,7 +53,7 @@ const Collections = () => {
                 setHandleText("")
                 return setHandleAvailable(false)
             }
-            const res = await axios.post("http://localhost:5000/api/v1/user/collections/check-handle", {handle}, {
+            const res = await axios.post("http://localhost:5001/api/v1/user/collections/check-handle", {handle}, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -92,7 +92,7 @@ const Collections = () => {
         setLoading(true)
         console.log(formData)
         try {
-            const createCollection = await axios.post("http://localhost:5000/api/v1/user/create-collection", formData, {
+            const createCollection = await axios.post("http://localhost:5001/api/v1/user/create-collection", formData, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -113,7 +113,7 @@ const Collections = () => {
 
     const getAllCollections = async () => {
         try {
-            const res = await axios.get("http://localhost:5000/api/v1/user/collections", {
+            const res = await axios.get("http://localhost:5001/api/v1/user/collections", {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

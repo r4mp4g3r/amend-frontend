@@ -9,6 +9,9 @@ import Onboard from './Pages/Onboard.jsx'
 import Dashboard from './Pages/Dashboard.jsx'
 import Collections from './Pages/Collections.jsx'
 import Redirect from './Pages/Redirect.jsx'
+import ResetPasswordRequest from './Pages/ResetPasswordRequest';
+import ResetPasswordForm from './Pages/ResetPasswordForm';
+import PasswordChanged from './Pages/PasswordChanged';
 
 const App = () => {
   return (
@@ -19,6 +22,9 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/register/1" element={<Register1 />} />
         <Route path="/onboard" element={<Onboard />} />
+        <Route path="/reset-password" element={<ResetPasswordRequest />} />
+        <Route path="/reset-password/:token" element={<ResetPasswordForm />} /> 
+        <Route path="/password-changed" element={<PasswordChanged />} />
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         <Route path="/collections" element={<Collections />} />
         <Route path="/collections/:handle" element={<Dashboard />} />
