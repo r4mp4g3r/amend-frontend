@@ -9,6 +9,8 @@ import Onboard from './Pages/Onboard.jsx'
 import Dashboard from './Pages/Dashboard.jsx'
 import Collections from './Pages/Collections.jsx'
 import Redirect from './Pages/Redirect.jsx'
+import Public from './Pages/Public.jsx'
+import PublicRedirect from './Pages/PublicRedirect.jsx'
 
 const App = () => {
   return (
@@ -21,7 +23,9 @@ const App = () => {
         <Route path="/onboard" element={<Onboard />} />
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         <Route path="/collections" element={<Collections />} />
-        <Route path="/collections/:handle" element={<Dashboard />} />
+        <Route path="/collections/:collectionId/:categoryId" element={<Dashboard />} />
+        <Route path="/:handle" element={<PublicRedirect />} />
+        <Route path="/:handle/:categoryId" element={<Public />} />
         {/* <Route path="/collections/:id" element={<Redirect />} />
         <Route path="/collections/:id/:categoryId/:catName" element={<Dashboard />} /> */}
       </Routes>

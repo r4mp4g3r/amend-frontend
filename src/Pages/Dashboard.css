@@ -12,12 +12,20 @@
     display: block;
     text-align: center;
   }
+  .info_card_box {
+    width: 120px;
+    height: 120px;
+    margin: auto;
+    border-radius: 50%;
+    background: #3b3b3b;
+  }
   .info_card .profile_pic {
     width: 120px;
     height: 120px;
     object-fit: cover;
     border-radius: 50%;
     position: inherit;
+    background: #3b3b3b;
   }
   .info_card .name {
     font-size: 22px;
