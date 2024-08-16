@@ -55,3 +55,25 @@ width: 100px !important;
   background: #4d4d4d; 
 }
 
+/* --------------Select Icon---------------- */
+
+.select_image::-webkit-scrollbar {
+  width: 100px !important;
+  }
+  /* Chrome */
+  .select_image::-webkit-scrollbar {
+    width: 4px !important;
+  }
+  
+  .select_image::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+  
+  .select_image::-webkit-scrollbar-thumb {
+    background: #4d4d4d; 
+    border-radius: 20px;
+  }
+  
+  .select_image::-webkit-scrollbar-thumb:hover {
+    background: #4d4d4d; 
+  }

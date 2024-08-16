@@ -2,8 +2,9 @@ import React, { useEffect, useRef, useState } from 'react'
 import { user_profile, upload } from '../assets/assets'
 import toast from 'react-hot-toast'
 import axios from 'axios'
+import { useParams } from 'react-router-dom'
 
-const AddCollectionModel = ({setShowModel, showModel, token, collections, setCollections}) => {
+const EditCollectionModel = ({showCollectionEditModel, setShowCollectionEditModel, token, collect, collectionId}) => {
 
     const [name, setName] = useState("")
     const [type, setType] = useState("individual")
@@ -33,45 +34,6 @@ const AddCollectionModel = ({setShowModel, showModel, token, collections, setCol
 
       //--------------------------------------------------
 
-    // ------------------Check Handle Availability--------------
-    const [handle, setHandle] = useState("")
-    const [handleAvailable, setHandleAvailable] = useState(false)
-    const [handleText, setHandleText] = useState("")
-
-    const checkHandle = async () => {
-        try {
-            if(handle === ""){
-                setHandleText("")
-                return setHandleAvailable(false)
-            }
-            const res = await axios.post("http://localhost:5000/api/v1/user/check-collections-handle", {handle}, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            })
-            if(res.status === 200){
-                setHandleText("✅")
-                setHandleAvailable(true)
-            } else {
-                setHandleText("❌")
-                setHandleAvailable(false)
-            }
-        } catch (error) {
-            setHandleText("❌")
-            setHandleAvailable(false)
-            console.log(error.response.data.message)
-        }
-    }
-
-    useEffect(() => {
-        setTimeout(() => {
-            checkHandle()
-          }, "1300");
-        
-    }, [handle])
-
-    // --------Check Handle Availability--------
-
     const submitHandler = async (e) => {
         e.preventDefault()
 
@@ -79,11 +41,10 @@ const AddCollectionModel = ({setShowModel, showModel, token, collections, setCol
         formData.append("file", file)
         formData.append("name", name)
         formData.append("type", type)
-        formData.append("handle", handle)
         setLoading(true)
         console.log(formData)
         try {
-            const createCollection = await axios.post("http://localhost:5000/api/v1/user/create-collection", formData, {
+            const createCollection = await axios.put(`http://localhost:5000/api/v1/user/update-collection/${collectionId}`, formData, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -93,7 +54,6 @@ const AddCollectionModel = ({setShowModel, showModel, token, collections, setCol
             setCollections([createCollection.data.collection, ...collections])
             setFilePrev("")
             setName("")
-            setHandle("")
             setShowModel(false)
             setLoading(false)
             
@@ -104,15 +64,20 @@ const AddCollectionModel = ({setShowModel, showModel, token, collections, setCol
         }
     }
 
+    useEffect(() => {
+        setName(collect?.name)
+        setType(collect?.type)
+    },[collect])
+
 
   return (
-    <div className="model" style={{display: showModel ? "block" : "none"}}>
+    <div className="model" style={{display: showCollectionEditModel ? "block" : "none"}}>
         <div className="model_box">
-        <button type="button" className="close_btn" onClick={() => setShowModel(false)}>❌</button>
+        <button type="button" className="close_btn" onClick={() => setShowCollectionEditModel(false)}>❌</button>
             <form onSubmit={submitHandler}>
             <div className="profile_pic_box center" onClick={handleClick}>
                 <input type="file" name="" accept="image/" id="" hidden ref={inputRef} onChange={changeFileHandler} />
-                <img src={filePrev ? filePrev : user_profile} alt="" style={{width: "120px", height: "120px"}} className="profile_pic" />
+                <img src={filePrev ? filePrev : collect?.image.url} alt="" style={{width: "120px", height: "120px"}} className="profile_pic" />
                 <div className="upload center">
                   <img src={upload} alt="" />
                 </div>
@@ -120,14 +85,14 @@ const AddCollectionModel = ({setShowModel, showModel, token, collections, setCol
 
                 <div style={{textAlign: "center", margin: "10px 0", textTransform: "capitalize"}}><p>{type}</p></div>
                 <div className="inner_container" style={{padding: "15px", textAlign: "left"}}>
-                    <div className="inner_container" style={{textAlign: "left"}}>
+                    {/* <div className="inner_container" style={{textAlign: "left"}}>
                         <div className="title">Choose your handle</div>
                         <div className="input_onboard shadow" style={{ marginTop: "5px", marginBottom: "10px"}}>
                             <div className="short_text">Amend.id/</div>
                             <input type="text" value={handle} onChange={(e) => setHandle(e.target.value)} required/>
                             <div className="check_taken">{handleText}</div>
                         </div>
-                        </div>
+                        </div> */}
 
                     <label htmlFor="">Name</label>
                     <input type="text" className='input_field shadow' required placeholder='Enter name' 
@@ -140,7 +105,7 @@ const AddCollectionModel = ({setShowModel, showModel, token, collections, setCol
                     </div>
                 </div>
                 <div style={{textAlign: "center"}}>
-                    <button disabled={loading} className="collection_submit" type="submit">{loading ? "Loading..." : "Create Collection"}</button>
+                    <button disabled={loading} className="collection_submit" type="submit">{loading ? "Loading..." : "Edit Collection"}</button>
                 </div>
             </form>
         </div>
@@ -149,4 +114,4 @@ const AddCollectionModel = ({setShowModel, showModel, token, collections, setCol
   )
 }
 
-export default AddCollectionModel
+export default EditCollectionModel
