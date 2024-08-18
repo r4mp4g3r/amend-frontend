@@ -70,11 +70,11 @@ const Collections = () => {
     }
 
     useEffect(() => {
-        setTimeout(() => {
-            checkHandle()
-          }, "1300");
-        
-    }, [handle])
+        const timeoutId = setTimeout(() => {
+            checkHandle();
+        }, 1300);
+        return () => clearTimeout(timeoutId);
+    }, [handle]);
 
     // --------Check Handle Availability--------
 
