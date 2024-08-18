@@ -43,7 +43,7 @@ const Onboard = () => {
       formData.append("file", file)
       console.log(formData)
 
-      const res = await axios.post("http://localhost:5000/api/v1/upload-image", formData, {
+      const res = await axios.post("http://localhost:5001/api/v1/upload-image", formData, {
         headers: {
             Authorization: `Bearer ${token}`
         }

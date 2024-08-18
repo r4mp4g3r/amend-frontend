@@ -14,10 +14,103 @@ const Collections = () => {
 
     const [collections, setCollections] = useState([])
     const [showModel, setShowModel] = useState(false)
+    const [loading, setLoading] = useState(false)
+
+    //-------------------Image----------------------------
+    const inputRef = useRef(null)
+    const [file, setFile] = useState("")
+    const [filePrev, setFilePrev] = useState("")
+
+    const handleClick = () => {
+        inputRef.current.click()
+      }
+    
+      const changeFileHandler = (e) => {
+        const file = e.target.files[0]
+        console.log(file)
+    
+        const reader = new FileReader()
+        reader.readAsDataURL(file)
+        reader.onloadend = () => {
+          setFilePrev(reader.result)
+          setFile(file)
+        }
+      }
+
+      //--------------------------------------------------
+
+    // ------------------Check Handle Availability--------------
+    const [handle, setHandle] = useState("")
+    const [handleAvailable, setHandleAvailable] = useState(false)
+    const [handleText, setHandleText] = useState("")
+
+    const checkHandle = async () => {
+        try {
+            if(handle === ""){
+                setHandleText("")
+                return setHandleAvailable(false)
+            }
+            const res = await axios.post("http://localhost:5001/api/v1/user/collections/check-handle", {handle}, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            if(res.status === 200){
+                setHandleText("✅")
+                setHandleAvailable(true)
+            } else {
+                setHandleText("❌")
+                setHandleAvailable(false)
+            }
+        } catch (error) {
+            setHandleText("❌")
+            setHandleAvailable(false)
+            console.log(error.response.data.message)
+        }
+    }
+
+    useEffect(() => {
+        setTimeout(() => {
+            checkHandle()
+          }, "1300");
+        
+    }, [handle])
+
+    // --------Check Handle Availability--------
+
+    const submitHandler = async (e) => {
+        e.preventDefault()
+
+        const formData = new FormData()
+        formData.append("file", file)
+        formData.append("name", name)
+        formData.append("type", type)
+        formData.append("handle", handle)
+        setLoading(true)
+        console.log(formData)
+        try {
+            const createCollection = await axios.post("http://localhost:5001/api/v1/user/create-collection", formData, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }) 
+            console.log(createCollection)
+            toast.success(createCollection.data.message)
+            setCollections([createCollection.data.collection, ...collections])
+            setFilePrev("")
+            setName("")
+            setShowModel(false)
+            setLoading(false)
+        } catch (error) {
+            toast.error(error.response.data.message)
+            console.log(error.response.data.message)
+            setLoading(false)
+        }
+    }
 
     const getAllCollections = async () => {
         try {
-            const res = await axios.get("http://localhost:5000/api/v1/user/collections", {
+            const res = await axios.get("http://localhost:5001/api/v1/user/collections", {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

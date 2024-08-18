@@ -19,7 +19,7 @@ const OnBoard = () => {
             setHandleText("")
             return setHandleAvailable(false)
         }
-        const res = await axios.post("http://localhost:5000/api/v1/checkhandle", {handle})
+        const res = await axios.post("http://localhost:5001/api/v1/checkhandle", {handle})
         if(res.status === 201){
             setHandleText("✅")
             setHandleAvailable(true)
