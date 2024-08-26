@@ -21,7 +21,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/register/1" element={<Register1 />} />
         <Route path="/onboard" element={<Onboard />} />
-        <Route path="/reset-password" element={<ResetPasswordRequest />} />
+        <Route path="/reset-password" element={<RequestResetPassword />} />
         <Route path="/reset-password/:token" element={<ResetPasswordForm />} /> 
         <Route path="/password-changed" element={<PasswordChanged />} />
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
